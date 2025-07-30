@@ -32,4 +32,17 @@ So first of all we need to start one by one user microservices then chat microse
    ```
    npx tsc -init
    ```
-   this will create a tsconfig.json file so in this 
+   this will create a tsconfig.json file so in this file i have seted some path variable like "rootDir": "./src",  "outDir": "./dist", etc.
+   thats it.
+
+and finally we have to install some packages that will needed by running these commands listed below.
+
+``` 
+npm i express dotenv mongoose
+```
+
+and then run
+```
+npm i -D @types/express @types/mongoose @types/dotenv nodemon concurrently
+```
+
