@@ -7,7 +7,6 @@ dotenv.config(); // Load environment variables from .env file
 const connectDb=async()=>{
     const url = process.env.MONGO_URL;
     if (!url) {
-        console.error("MongoDB connection string is not defined in environment variables.");
         process.exit(1); // Exit the process with failure
     }
     try {
