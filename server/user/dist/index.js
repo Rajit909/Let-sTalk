@@ -3,15 +3,15 @@ import dotenv from 'dotenv';
 import connectDb from './config/db.js';
 import cookieParser from 'cookie-parser';
 dotenv.config();
-connectDb();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true
-};
+// const corsOptions = {
+//     origin:'http://localhost:3000',
+//     credentials:true
+// }
+connectDb();
 app.get('/', (_, res) => {
     res.send('Hello World!');
 });
