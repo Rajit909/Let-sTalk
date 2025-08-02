@@ -3,7 +3,8 @@ import cors from 'cors'
 
 import cookieParser from 'cookie-parser'
 import connectDb from './lib/config/db.js';
-
+import { redisClient } from './lib/config/redisdb.js';
+import userRoutes from './routes/user.route.js'
 
 const app = express();
 
@@ -17,6 +18,10 @@ app.use(cookieParser());
 // }
 
 connectDb()
+redisClient
+
+
+app.use("api/v1", userRoutes)
 
 app.get('/', (_, res) => {   
     res.send('Hello World!');
