@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors'
 
 import cookieParser from 'cookie-parser'
+import connectToDb from './lib/db.js';
 
 
 const app = express();
@@ -14,6 +15,8 @@ const corsOptions = {
     origin:'http://localhost:3000',
     credentials:true
 }
+
+connectToDb()
 
 
 app.get('/', (_, res) => {   
