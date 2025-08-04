@@ -1,9 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
 dotenv.config(); // Load environment variables from .env file
-
-
 const connectDb = async () => {
     const url = process.env.MONGO_URL;
     console.log("Connecting to MongoDB with URL:", url);
@@ -16,10 +13,10 @@ const connectDb = async () => {
             dbName: "LetsTalk",
         });
         console.log("Database connected successfully");
-    } catch (error) {
+    }
+    catch (error) {
         console.log("Database connection failed:", error);
         process.exit(1); // Exit the process with failure
     }
-}
-
+};
 export default connectDb;

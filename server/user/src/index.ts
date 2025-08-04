@@ -2,10 +2,10 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDb from './config/db.js';
 import cookieParser from 'cookie-parser';
+import redisClient from './config/redisDB.js';
 
 dotenv.config();
 
-connectDb();
 
 
 const app = express();
@@ -18,6 +18,9 @@ const corsOptions = {
     origin:'http://localhost:3000',
     credentials:true
 }
+
+connectDb();
+redisClient
 
 
 app.get('/', (_, res) => {   
