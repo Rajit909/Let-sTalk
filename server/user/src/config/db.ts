@@ -1,25 +1,24 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-
-dotenv.config(); // Load environment variables from .env file
-
+import dotenv from 'dotenv';
+dotenv.config();
 
 const connectDb = async () => {
-    const url = process.env.MONGO_URL;
-    console.log("Connecting to MongoDB with URL:", url);
-    if (!url) {
-        console.log("MongoDB connection string is not defined");
-        process.exit(1); // Exit the process with failure
+    const url = process.env.MONGO_URl;
+
+    console.log("url", url)
+    
+    if(!url){
+        throw new Error("MONGO_URI is not defined in enviroment variables") 
     }
     try {
         await mongoose.connect(url, {
             dbName: "LetsTalk",
         });
-        console.log("Database connected successfully");
+        console.log("Connected to mongo")
     } catch (error) {
-        console.log("Database connection failed:", error);
-        process.exit(1); // Exit the process with failure
+        console.error("Failed to connect to Mongodb", error);
+        process.exit(1);
     }
-}
+};
 
 export default connectDb;

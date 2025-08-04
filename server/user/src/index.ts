@@ -22,6 +22,7 @@ const corsOptions = {
 connectDb();
 redisClient
 
+connectDb();
 
 app.get('/', (_, res) => {   
     res.send('Hello World!');
