@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import connectDb from './lib/config/db.js';
 import { redisClient } from './lib/config/redisdb.js';
 import userRoutes from './routes/user.route.js'
+import { connectRabbitMQ } from './lib/config/rabbitmq.js';
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use(cookieParser());
 // }
 
 connectDb()
-redisClient
+// redisClient
+// connectRabbitMQ();
 
 
 app.use("api/v1", userRoutes)

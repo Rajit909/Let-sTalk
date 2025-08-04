@@ -6,3 +6,6 @@ today's plan:
     in this file we are going to create model for user 
     2. redis connection setup for data caching
     3.implementing rabbit mq
+
+
+docker run -d --hostname rabbitmq-host --name rabbitmq-container -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT
