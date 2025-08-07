@@ -18,9 +18,9 @@ app.use(cookieParser());
 //     credentials:true
 // }
 
-connectDb()
+// connectDb()
 // redisClient
-// connectRabbitMQ();
+connectRabbitMQ();
 
 
 app.use("api/v1", userRoutes)
