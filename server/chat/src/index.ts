@@ -1,13 +1,8 @@
 import express from 'express';
-import cors from 'cors'
-
 import cookieParser from 'cookie-parser'
-import connectDb from './lib/config/db.js';
-import { redisClient } from './lib/config/redisdb.js';
-import userRoutes from './routes/user.route.js'
-import { connectRabbitMQ } from './lib/config/rabbitmq.js';
 
 const app = express();
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -18,12 +13,12 @@ app.use(cookieParser());
 //     credentials:true
 // }
 
-connectDb()
+// connectDb()
 // redisClient
-connectRabbitMQ();
+// connectRabbitMQ();
 
 
-app.use("api/v1", userRoutes)
+
 
 app.get('/', (_, res) => {   
     res.send('Hello World!');
