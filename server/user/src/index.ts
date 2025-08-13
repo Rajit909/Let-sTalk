@@ -1,6 +1,4 @@
 import express from 'express';
-import cors from 'cors'
-
 import cookieParser from 'cookie-parser'
 import connectDb from './lib/config/db.js';
 import { redisClient } from './lib/config/redisdb.js';
@@ -23,7 +21,9 @@ connectDb()
 connectRabbitMQ();
 
 
-app.use("api/v1", userRoutes)
+//user routes
+app.use("/api/v1", userRoutes)
+
 
 app.get('/', (_, res) => {   
     res.send('Hello World!');
